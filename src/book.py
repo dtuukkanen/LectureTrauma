@@ -15,7 +15,7 @@ class Book:
         self.hit_time = None
         self.damage = int(professor.get_random_exclamation('professor_exclamation.txt')[1])
         self.radius = int(professor.get_random_exclamation('professor_exclamation.txt')[2])
-        self.speed = int(professor.get_random_exclamation('professor_exclamation.txt')[3]) * scoreboard.scoreboard.score / 100
+        self.speed = int(professor.get_random_exclamation('professor_exclamation.txt')[3])
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
@@ -38,8 +38,8 @@ class Book:
         dy /= magnitude
 
         # Multiply the unit direction vector by the speed to get the velocity vector
-        dx *= self.speed
-        dy *= self.speed
+        dx *= self.speed * scoreboard.scoreboard.score / 100
+        dy *= self.speed * scoreboard.scoreboard.score / 100
 
         # Add the velocity vector to the current position to get the new position
         self.pos[0] += dx
