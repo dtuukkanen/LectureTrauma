@@ -88,8 +88,8 @@ while running:
                 student.move(chair_width, 0)
         elif event.type == THROW_BOOK_EVENT:
             # Generate a random position within the screen bounds
-            random_pos = (random.randint(0, (cols * chair_width)),
-                          random.randint(0, cols * chair_height))
+            random_pos = (random.randint(0, ((cols - 1)  * chair_width)),
+                          random.randint(0, (cols - 1)  * chair_height))
             professor.throw_book(random_pos)
             # Set a timer to remove the book after 3 seconds
             pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)
