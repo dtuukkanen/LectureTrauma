@@ -32,10 +32,11 @@ class Professor:
 
         # Make the professor "speak"
         self.message = font.render(
-            get_random_exclamation('professor_exclamation.txt'), True, (255, 255, 255))
+            get_random_exclamation('professor_exclamation.txt')[0], True, (255, 255, 255))
 
-
+# Reads a random line from exclamations and returns it as list including (name;damage;radius;speed)
 def get_random_exclamation(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         exclamations = file.readlines()
-    return random.choice(exclamations).strip()
+        exclamation = random.choice(exclamations).strip().split(';')
+    return exclamation

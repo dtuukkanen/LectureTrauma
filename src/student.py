@@ -11,8 +11,7 @@ class Student:
         self.height = height
         self.rows = rows
         self.cols = cols
-        self.lives = 3
-        self.max_lives = 3
+        self.lives = 100
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
