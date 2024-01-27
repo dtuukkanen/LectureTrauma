@@ -1,9 +1,11 @@
 import sys
 import time
 import pygame
+import random
+
 from student import Student
 from professor import Professor
-import random
+from scoreboard import Scoreboard
 
 # pygame setup
 pygame.init()
@@ -33,27 +35,25 @@ professor = Professor(professor_x, professor_y, chair_width, chair_height)
 # Book time alive
 book_time_alive = 10
 
+# Initialize the scoreboard
+scoreboard = Scoreboard(10, 10, font)
+
 # Define a new event type for removing books
 REMOVE_BOOK_EVENT = pygame.USEREVENT + 1
-THROW_BOOK_EVENT = pygame.USEREVENT + 1
+THROW_BOOK_EVENT = pygame.USEREVENT + 2
 
 pygame.time.set_timer(THROW_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
+pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
 
 # In the main game loop:
 while running:
     # In your main game loop:
     current_time = time.time()
-    professor.books = [(book, throw_time) for book,
-                       throw_time in professor.books if current_time - throw_time < book_time_alive]
 
     # Update and draw the books
     for book, throw_time in professor.books:
         book.update()
         book.draw(screen)
-
-        # Check if the book has been stationary for more than 1 second
-        if book.hit_time is not None and time.time() - book.hit_time > 1:
-            professor.books.remove((book, throw_time))
 
     # Check for collisions between the student and the books
     for book, throw_time in professor.books:
@@ -88,15 +88,14 @@ while running:
                 student.move(chair_width, 0)
         elif event.type == THROW_BOOK_EVENT:
             # Generate a random position within the screen bounds
-            random_pos = (random.randint(0, ((cols - 1)  * chair_width)),
-                          random.randint(0, (cols - 1)  * chair_height))
+            random_pos = (random.randint(0, ((cols - 1) * chair_width)),
+                          random.randint(0, (cols - 1) * chair_height))
             professor.throw_book(random_pos)
-            # Set a timer to remove the book after 3 seconds
-            pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)
         elif event.type == REMOVE_BOOK_EVENT:
             # Remove the book when the timer event is triggered
             if professor.books:
                 professor.books.pop(0)
+                scoreboard.increment_score(1)
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("bisque4")
@@ -111,6 +110,9 @@ while running:
 
     # Draw the professor
     professor.draw(screen)
+
+    # Draw the scoreboard
+    scoreboard.draw(screen)
 
     # Draw the professor's message
     if professor.message:
