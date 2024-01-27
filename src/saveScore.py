@@ -17,3 +17,12 @@ def save_scoreboard(score):
     with open('data/scores.txt', 'w') as f:
         for score in scores:
             f.write(str(score) + '\n')
+
+def get_high_score():
+    try:
+        with open('data/scores.txt', 'r') as f:
+            scores = [int(line.strip()) for line in f]
+    except FileNotFoundError:
+        return 0
+
+    return max(scores)
