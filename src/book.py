@@ -2,8 +2,6 @@
 import pygame
 import time
 import professor
-import main
-import scoreboard
 
 class Book:
     def __init__(self, x, y, target_pos):
@@ -38,8 +36,8 @@ class Book:
         dy /= magnitude
 
         # Multiply the unit direction vector by the speed to get the velocity vector
-        dx *= self.speed * scoreboard.scoreboard.score / 100
-        dy *= self.speed * scoreboard.scoreboard.score / 100
+        dx *= self.speed
+        dy *= self.speed
 
         # Add the velocity vector to the current position to get the new position
         self.pos[0] += dx
