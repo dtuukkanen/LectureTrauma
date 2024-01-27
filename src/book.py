@@ -1,19 +1,18 @@
 # book.py
 import pygame
 import time
-import professor
 
 class Book:
-    def __init__(self, x, y, target_pos, score):
+    def __init__(self, x, y, target_pos, exclamation, score):
         self.image = pygame.image.load('assets/book.png')
         self.pos = [x, y]
         self.target_pos = target_pos
         self.width = self.image.get_width()
         self.height = self.image.get_height()
         self.hit_time = None
-        self.damage = int(professor.get_random_exclamation('data/professor_exclamation.txt')[1])
-        self.radius = int(professor.get_random_exclamation('data/professor_exclamation.txt')[2])
-        self.speed = int(professor.get_random_exclamation('data/professor_exclamation.txt')[3])
+        self.damage = int(exclamation[1])
+        self.radius = int(exclamation[2])
+        self.speed = int(exclamation[3])
         self.score = score
 
     def draw(self, screen):
@@ -37,8 +36,8 @@ class Book:
         dy /= magnitude
 
         # Multiply the unit direction vector by the speed to get the velocity vector
-        dx *= self.speed * self.score / 100
-        dy *= self.speed * self.score / 100
+        dx *= self.speed
+        dy *= self.speed
 
         # Add the velocity vector to the current position to get the new position
         self.pos[0] += dx
