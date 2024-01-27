@@ -2,6 +2,12 @@
 import pygame
 from book import Book
 
+# Initialize Pygame
+pygame.init()
+
+# Define the font
+font = pygame.font.Font(None, 36)  # Use the default font and a size of 36
+
 
 class Professor:
     def __init__(self, x, y, width, height):
@@ -10,6 +16,7 @@ class Professor:
         self.width = width
         self.height = height
         self.books = []
+        self.message = None
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
