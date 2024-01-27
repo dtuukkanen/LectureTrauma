@@ -10,6 +10,7 @@ class Book:
         self.width = self.image.get_width()
         self.height = self.image.get_height()
         self.speed = 2
+        self.hit_time = None
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
@@ -38,3 +39,8 @@ class Book:
         # Add the velocity vector to the current position to get the new position
         self.pos[0] += dx
         self.pos[1] += dy
+        
+        # Check if the book has reached its target position
+        if self.pos == self.target_pos and self.hit_time is None:
+            # Set hit_time to the current time
+            self.hit_time = time.time()
