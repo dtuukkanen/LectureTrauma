@@ -108,9 +108,10 @@ while running:
             elif event.key == pygame.K_RIGHT:
                 student.move(chair_width, 0)
         elif event.type == THROW_BOOK_EVENT:
-            # Generate a random position within the screen bounds
-            random_pos = (random.randint(0, ((cols - 1) * chair_width)),
-                          random.randint(0, (cols - 1) * chair_height))
+            # Generate a random position within the grid of chairs
+            random_col = random.randint(0, cols - 1)
+            random_row = random.randint(0, rows - 1)
+            random_pos = (random_col * chair_width, random_row * chair_height)
             professor.throw_book(random_pos)
         elif event.type == REMOVE_BOOK_EVENT:
             # Remove the book when the timer event is triggered
