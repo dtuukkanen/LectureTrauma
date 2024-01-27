@@ -17,7 +17,7 @@ font = pygame.font.Font(None, 36)  # Use the default font and a size of 36
 
 # Set the dimensions of each chair and the number of chairs in each row and column
 chair_width, chair_height = 32, 32
-rows, cols = 20, 20
+rows, cols = 8, 10
 
 # Load the chair image
 chair_image = pygame.image.load('assets/chair_blue.png')
