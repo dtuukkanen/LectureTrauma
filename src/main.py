@@ -22,6 +22,26 @@ rows, cols = 8, 10
 # Load the chair image
 chair_image = pygame.image.load('assets/chair_blue.png')
 
+def draw_health_bar(screen, pos, health, max_health):
+    # Set the dimensions and position of the health bar
+    bar_width = 100
+    bar_height = 20
+    x, y = pos
+
+    # Check if the position is within the screen boundaries
+    screen_width, screen_height = screen.get_size()
+    if x < 0 or y < 0 or x + bar_width > screen_width or y + bar_height > screen_height:
+        print(f"Health bar position ({x}, {y}) is out of screen boundaries!")
+        return
+
+    # Calculate the width of the health portion of the bar
+    fill = (health / max_health) * bar_width
+    # Draw the outline of the health bar
+    pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(x, y, bar_width, bar_height), 1)
+    # Draw the health portion of the bar
+    if fill > 0:
+        pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(x, y, fill, bar_height))
+
 # Load the student
 student = Student(0, 0, chair_width, chair_height, rows, cols)
 
@@ -70,9 +90,8 @@ while running:
         book.draw(screen)
 
     # Draw the student's lives
-    lives_text = font.render(f"Lives: {student.lives}", True, (255, 255, 255))
+    lives_text = font.render(f"Lives: {student.lives}", True, (50, 50, 50))
     screen.blit(lives_text, (10, 10))
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -118,7 +137,7 @@ while running:
                     (professor.pos[0], professor.pos[1] - 20))
 
     pygame.display.flip()
-
+    draw_health_bar(screen, (325, 0), student.lives, student.max_lives)
     pygame.display.update()
     clock.tick(60)
 
