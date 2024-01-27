@@ -7,7 +7,7 @@ import random
 
 # pygame setup
 pygame.init()
-screen_width, screen_height = 1280, 720
+screen_width, screen_height = 640, 720
 screen = pygame.display.set_mode((screen_width, screen_height))
 clock = pygame.time.Clock()
 running = True
