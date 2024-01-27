@@ -22,6 +22,11 @@ class Book:
         # Calculate the magnitude of the direction vector
         magnitude = (dx**2 + dy**2)**0.5
 
+        # If the book is close enough to the target, snap it to the target and stop updating
+        if magnitude < self.speed:
+            self.pos = self.target_pos
+            return
+
         # Normalize the direction vector to get a unit direction vector
         dx /= magnitude
         dy /= magnitude
@@ -33,3 +38,4 @@ class Book:
         # Add the velocity vector to the current position to get the new position
         self.pos[0] += dx
         self.pos[1] += dy
+        
