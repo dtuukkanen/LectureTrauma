@@ -25,6 +25,7 @@ rows, cols = 8, 10
 # Load the chair image
 chair_image = pygame.image.load('assets/chair_blue.png')
 
+# Health bar function
 def draw_health_bar(screen, pos, health, max_health):
     # Set the dimensions and position of the health bar
     bar_width = 100
@@ -140,6 +141,7 @@ while running:
                     (professor.pos[0], professor.pos[1] - 20))
 
     pygame.display.flip()
+    pygame.display.set_caption("LectureTrauma")
     draw_health_bar(screen, (325, 0), student.lives, student.max_lives)
     pygame.display.update()
     clock.tick(60)
