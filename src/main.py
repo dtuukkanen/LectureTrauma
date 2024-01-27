@@ -64,6 +64,7 @@ REMOVE_BOOK_EVENT = pygame.USEREVENT + 1
 THROW_BOOK_EVENT = pygame.USEREVENT + 2
 
 pygame.time.set_timer(THROW_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
+pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
 
 # In the main game loop:
 while running:
