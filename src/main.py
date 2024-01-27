@@ -124,7 +124,7 @@ while running:
     pygame.display.update()
     clock.tick(60)
 
-save_scoreboard(score)
+save_scoreboard(scoreboard.score)
 pygame.quit()
 
 print("Game Over!")
