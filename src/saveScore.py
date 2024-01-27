@@ -1,7 +1,7 @@
 def save_scoreboard(score):
     # Read the existing scores
     try:
-        with open('scores.txt', 'r') as f:
+        with open('data/scores.txt', 'r') as f:
             scores = [int(line.strip()) for line in f]
     except FileNotFoundError:
         scores = []
@@ -14,6 +14,6 @@ def save_scoreboard(score):
     scores = sorted(scores, reverse=True)[:10]
 
     # Write the scores back to the file
-    with open('scores.txt', 'w') as f:
+    with open('data/scores.txt', 'w') as f:
         for score in scores:
             f.write(str(score) + '\n')
