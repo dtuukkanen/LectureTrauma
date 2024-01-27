@@ -36,6 +36,6 @@ class Professor:
 
 
 def get_random_exclamation(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         exclamations = file.readlines()
     return random.choice(exclamations).strip()
