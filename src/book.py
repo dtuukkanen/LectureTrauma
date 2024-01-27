@@ -9,24 +9,27 @@ class Book:
         self.target_pos = target_pos
         self.width = self.image.get_width()
         self.height = self.image.get_height()
-        self.speed = 1
-        self.hit_time = None
+        self.speed = 2
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
 
     def update(self):
-        # Move towards the target position
-        if self.pos[0] < self.target_pos[0]:
-            self.pos[0] += self.speed
-        elif self.pos[0] > self.target_pos[0]:
-            self.pos[0] -= self.speed
-        if self.pos[1] < self.target_pos[1]:
-            self.pos[1] += self.speed
-        elif self.pos[1] > self.target_pos[1]:
-            self.pos[1] -= self.speed
+        # Calculate the direction vector
+        dx = self.target_pos[0] - self.pos[0]
+        dy = self.target_pos[1] - self.pos[1]
 
-        # Check if the book has become stationary
-        if self.pos == self.target_pos:
-            # Set hit_time to the current time
-            self.hit_time = time.time()
+        # Calculate the magnitude of the direction vector
+        magnitude = (dx**2 + dy**2)**0.5
+
+        # Normalize the direction vector to get a unit direction vector
+        dx /= magnitude
+        dy /= magnitude
+
+        # Multiply the unit direction vector by the speed to get the velocity vector
+        dx *= self.speed
+        dy *= self.speed
+
+        # Add the velocity vector to the current position to get the new position
+        self.pos[0] += dx
+        self.pos[1] += dy
