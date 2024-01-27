@@ -47,6 +47,7 @@ def main():
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 if start_button_rect.collidepoint(mouse_pos):
+                    pygame.display.quit()
                     subprocess.call(["python", "src/main.py"])
 
         draw_start_view()
