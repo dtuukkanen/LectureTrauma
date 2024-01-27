@@ -25,9 +25,9 @@ class Professor:
         for book, throw_time in self.books:
             book.draw(screen)
 
-    def throw_book(self, target_pos):
+    def throw_book(self, target_pos, score):
         # Create a new book and add it to the list of books
-        new_book = book.Book(self.pos[0], self.pos[1], target_pos)
+        new_book = book.Book(self.pos[0], self.pos[1], target_pos, score)
         self.books.append((new_book, time.time()))
 
         # Make the professor "speak"

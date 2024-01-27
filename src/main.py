@@ -58,7 +58,7 @@ professor = Professor(professor_x, professor_y, chair_width, chair_height)
 book_time_alive = 10
 
 # Initialize the scoreboard
-scoreboard = Scoreboard(325, 20)
+scoreboard = Scoreboard(325, 20, font)
 
 # Define a new event type for removing books
 REMOVE_BOOK_EVENT = pygame.USEREVENT + 1
@@ -112,7 +112,7 @@ while running:
             random_col = random.randint(0, cols - 1)
             random_row = random.randint(0, rows - 1)
             random_pos = (random_col * chair_width, random_row * chair_height)
-            professor.throw_book(random_pos)
+            professor.throw_book(random_pos, scoreboard.score)
         elif event.type == REMOVE_BOOK_EVENT:
             # Remove the book when the timer event is triggered
             if professor.books:

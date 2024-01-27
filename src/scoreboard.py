@@ -19,3 +19,6 @@ class Scoreboard:
         score_text = self.font.render(
             f"Score: {self.score}", True, (255, 255, 255))
         screen.blit(score_text, (self.x, self.y))
+
+    def get_score(self):
+        return self.score
