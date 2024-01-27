@@ -4,6 +4,7 @@ import pygame
 from student import Student
 from professor import Professor
 import random
+from saveScore import save_scoreboard
 
 # pygame setup
 pygame.init()
@@ -39,6 +40,7 @@ THROW_BOOK_EVENT = pygame.USEREVENT + 1
 
 pygame.time.set_timer(THROW_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
 
+
 # In the main game loop:
 while running:
     # In your main game loop:
@@ -50,10 +52,6 @@ while running:
     for book, throw_time in professor.books:
         book.update()
         book.draw(screen)
-
-        # Check if the book has been stationary for more than 1 second
-        if book.hit_time is not None and time.time() - book.hit_time > 1:
-            professor.books.remove((book, throw_time))
 
     # Check for collisions between the student and the books
     for book, throw_time in professor.books:
@@ -88,8 +86,8 @@ while running:
                 student.move(chair_width, 0)
         elif event.type == THROW_BOOK_EVENT:
             # Generate a random position within the screen bounds
-            random_pos = (random.randint(0, ((cols - 1)  * chair_width)),
-                          random.randint(0, (cols - 1)  * chair_height))
+            random_pos = (random.randint(0, ((cols)  * chair_width)),
+                          random.randint(0, (rows)  * chair_height))
             professor.throw_book(random_pos)
             # Set a timer to remove the book after 3 seconds
             pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)
@@ -122,6 +120,7 @@ while running:
     pygame.display.update()
     clock.tick(60)
 
+save_scoreboard(score)
 pygame.quit()
 
 print("Game Over!")
