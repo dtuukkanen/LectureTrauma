@@ -58,7 +58,7 @@ professor = Professor(professor_x, professor_y, chair_width, chair_height)
 book_time_alive = 10
 
 # Initialize the scoreboard
-scoreboard = Scoreboard(325, 20, font)
+scoreboard = Scoreboard(325, 20)
 
 # Define a new event type for removing books
 REMOVE_BOOK_EVENT = pygame.USEREVENT + 1
