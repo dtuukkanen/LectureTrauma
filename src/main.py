@@ -51,6 +51,10 @@ while running:
         book.update()
         book.draw(screen)
 
+        # Check if the book has been stationary for more than 1 second
+        if book.hit_time is not None and time.time() - book.hit_time > 1:
+            professor.books.remove((book, throw_time))
+
     # Check for collisions between the student and the books
     for book, throw_time in professor.books:
         if pygame.Rect(student.pos[0], student.pos[1], student.width, student.height).colliderect(pygame.Rect(book.pos[0], book.pos[1], book.width, book.height)):

@@ -1,6 +1,6 @@
 # book.py
 import pygame
-
+import time
 
 class Book:
     def __init__(self, x, y, target_pos):
@@ -38,4 +38,3 @@ class Book:
         # Add the velocity vector to the current position to get the new position
         self.pos[0] += dx
         self.pos[1] += dy
-        
