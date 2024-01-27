@@ -12,6 +12,7 @@ class Student:
         self.rows = rows
         self.cols = cols
         self.lives = 3
+        
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)

@@ -6,6 +6,7 @@ import random
 from student import Student
 from professor import Professor
 from scoreboard import Scoreboard
+from saveScore import save_scoreboard
 
 # pygame setup
 pygame.init()
@@ -43,7 +44,6 @@ REMOVE_BOOK_EVENT = pygame.USEREVENT + 1
 THROW_BOOK_EVENT = pygame.USEREVENT + 2
 
 pygame.time.set_timer(THROW_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
-pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
 
 # In the main game loop:
 while running:
@@ -124,6 +124,7 @@ while running:
     pygame.display.update()
     clock.tick(60)
 
+save_scoreboard(score)
 pygame.quit()
 
 print("Game Over!")
