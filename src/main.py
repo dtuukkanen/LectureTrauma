@@ -84,6 +84,8 @@ while running:
             professor.books.remove((book, throw_time))
 
         if student.lives <= 0:
+            import end
+            end.main(scoreboard.score)
             running = False
 
     # Update and draw the books
