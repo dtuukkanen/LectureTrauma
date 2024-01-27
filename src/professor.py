@@ -1,4 +1,5 @@
 # professor.py
+import time
 import pygame
 import random
 from book import Book
@@ -21,13 +22,13 @@ class Professor:
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
-        for book in self.books:
+        for book, throw_time in self.books:
             book.draw(screen)
 
     def throw_book(self, target_pos):
         # Create a new book and add it to the list of books
         book = Book(self.pos[0], self.pos[1], target_pos)
-        self.books.append(book)
+        self.books.append((book, time.time()))
 
         # Make the professor "speak"
         self.message = font.render(
