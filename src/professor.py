@@ -2,7 +2,7 @@
 import time
 import pygame
 import random
-from book import Book
+import book
 
 # Initialize Pygame
 pygame.init()
@@ -13,7 +13,7 @@ font = pygame.font.Font(None, 36)  # Use the default font and a size of 36
 
 class Professor:
     def __init__(self, x, y, width, height):
-        self.image = pygame.image.load('assets/Uolevi.png')
+        self.image = pygame.image.load('assets/professor.png')
         self.pos = [x, y]
         self.width = width
         self.height = height
@@ -27,12 +27,12 @@ class Professor:
 
     def throw_book(self, target_pos):
         # Create a new book and add it to the list of books
-        book = Book(self.pos[0], self.pos[1], target_pos)
-        self.books.append((book, time.time()))
+        new_book = book.Book(self.pos[0], self.pos[1], target_pos)
+        self.books.append((new_book, time.time()))
 
         # Make the professor "speak"
         self.message = font.render(
-            get_random_exclamation('professor_exclamation.txt')[0], True, (255, 255, 255))
+            get_random_exclamation('data/professor_exclamation.txt')[0], True, (255, 255, 255))
 
 # Reads a random line from exclamations and returns it as list including (name;damage;radius;speed)
 def get_random_exclamation(file_path):
