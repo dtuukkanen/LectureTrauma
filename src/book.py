@@ -3,6 +3,7 @@ import pygame
 import time
 import professor
 import main
+import scoreboard
 
 class Book:
     def __init__(self, x, y, target_pos):
@@ -14,7 +15,7 @@ class Book:
         self.hit_time = None
         self.damage = int(professor.get_random_exclamation('professor_exclamation.txt')[1])
         self.radius = int(professor.get_random_exclamation('professor_exclamation.txt')[2])
-        self.speed = int(professor.get_random_exclamation('professor_exclamation.txt')[3])
+        self.speed = int(professor.get_random_exclamation('professor_exclamation.txt')[3]) * scoreboard.scoreboard.score / 100
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
