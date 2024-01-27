@@ -2,6 +2,7 @@ import sys
 import pygame
 from student import Student
 from professor import Professor
+import random
 
 # pygame setup
 pygame.init()
@@ -66,7 +67,10 @@ while running:
             elif event.key == pygame.K_RIGHT:
                 student.move(chair_width, 0)
         elif event.type == THROW_BOOK_EVENT:
-            professor.throw_book(student.pos)
+            # Generate a random position within the screen bounds
+            random_pos = (random.randint(0, (cols * chair_width)), random.randint(0, cols * chair_height))
+            professor.throw_book(random_pos)
+
 
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("purple")
