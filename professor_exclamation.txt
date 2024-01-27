@@ -1,13 +1,13 @@
-Plagiointisyyte;80;10;2
-Puolet ei päässyt läpi kurssista;10;50;1.5
-Tyyliohjeet;40;10;1.5
+Plagiointisyyte;80;10;3
+Puolet ei päässyt läpi kurssista;10;50;2
+Tyyliohjeet;40;10;2
 UML-kaaviot;10;20;1
-Paperitentti;15;30;1.5
+Paperitentti;15;30;2
 Kurssilla ei moodlea;10;50;1
-Tarkastuksessa kestää yli puoli vuotta;10;20;1.5
+Tarkastuksessa kestää yli puoli vuotta;10;20;2
 Koodi ei läpäissyt vaatimuksia;50;10;2
-50 kalvon luento;15;40;1.5
+50 kalvon luento;15;40;2
 Tekoäly ei sallittu;20;50;1
-Eikö koodi käänny. Se on voi voi;40;30;2
+Eikö koodi käänny. Se on voi voi;40;30;3
 En näe ongelmaa, joten ongelmaa ei ole;10;50;1
-Harkkatyö bumerangina takaisin;35;30;2
+Harkkatyö bumerangina takaisin;35;30;3

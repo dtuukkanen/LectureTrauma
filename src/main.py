@@ -80,7 +80,7 @@ while running:
     # Check for collisions between the student and the books
     for book, throw_time in professor.books:
         if pygame.Rect(student.pos[0], student.pos[1], student.width, student.height).colliderect(pygame.Rect(book.pos[0], book.pos[1], book.width, book.height)):
-            student.lives -= 1
+            student.lives -= book.damage
             professor.books.remove((book, throw_time))
 
         if student.lives <= 0:
