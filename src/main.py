@@ -139,7 +139,7 @@ while running:
     # Draw the professor's message
     if professor.message:
         screen.blit(professor.message,
-                    (professor.pos[0], professor.pos[1] - 20))
+                    (professor.pos[0] -50, professor.pos[1] + 35))
 
     pygame.display.flip()
     pygame.display.set_caption("LectureTrauma")
