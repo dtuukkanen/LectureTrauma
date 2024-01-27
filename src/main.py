@@ -20,7 +20,7 @@ chair_width, chair_height = 32, 32
 rows, cols = 20, 20
 
 # Load the chair image
-chair_image = pygame.image.load('assets/chair.png')
+chair_image = pygame.image.load('assets/chair_blue.png')
 
 # Load the student
 student = Student(0, 0, chair_width, chair_height, rows, cols)
@@ -99,7 +99,7 @@ while running:
                 professor.books.pop(0)
 
     # fill the screen with a color to wipe away anything from last frame
-    screen.fill("purple")
+    screen.fill("bisque4")
 
     # Draw the chairs
     for row in range(rows):
