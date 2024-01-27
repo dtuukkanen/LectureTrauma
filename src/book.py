@@ -9,7 +9,7 @@ class Book:
         self.target_pos = target_pos
         self.width = self.image.get_width()
         self.height = self.image.get_height()
-        self.speed = 2
+        self.speed = 1
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
