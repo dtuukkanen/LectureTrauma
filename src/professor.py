@@ -1,5 +1,6 @@
 # professor.py
 import pygame
+import random
 from book import Book
 
 # Initialize Pygame
@@ -29,4 +30,11 @@ class Professor:
         self.books.append(book)
 
         # Make the professor "speak"
-        self.message = font.render("Take this!", True, (255, 255, 255))
+        self.message = font.render(
+            get_random_exclamation('professor_exclamation.txt'), True, (255, 255, 255))
+
+
+def get_random_exclamation(file_path):
+    with open(file_path, 'r') as file:
+        exclamations = file.readlines()
+    return random.choice(exclamations).strip()
