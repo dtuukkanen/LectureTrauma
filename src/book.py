@@ -12,8 +12,7 @@ class Book:
         self.hit_time = None
         self.damage = int(exclamation[1])
         self.radius = int(exclamation[2])
-        self.speed = int(exclamation[3])
-        self.score = score
+        self.speed = int(exclamation[3]) + score // 10
 
     def draw(self, screen):
         screen.blit(self.image, self.pos)
