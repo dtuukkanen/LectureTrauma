@@ -11,11 +11,10 @@ class Book:
         self.height = self.image.get_height()
         self.hit_time = None
         self.damage = int(exclamation[1])
-        self.radius = int(exclamation[2])
-        if score < 150:
-            self.speed = int(exclamation[3]) + score // 10
+        if score < 50:
+            self.speed = int(exclamation[2]) + int(exclamation[2]) * score // 10
         else:
-            self.speed = int(exclamation[3]) + 15
+            self.speed = int(exclamation[2]) + int(exclamation[2]) * 15
 
 
     def draw(self, screen):
