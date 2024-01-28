@@ -24,6 +24,13 @@ def draw_start_view():
     # Clear the screen
     screen.fill((0, 0, 0))
 
+    # Load the logo image
+    logo = pygame.image.load('assets/logo.png')
+
+    # Draw the logo at the top center of the screen
+    logo_rect = logo.get_rect(center=(WIDTH / 2, 50))
+    screen.blit(logo, logo_rect)
+
     # Draw the start button
     start_button_text = font.render("Start Game", True, (255, 255, 255))
     start_button_rect = start_button_text.get_rect(center=(WIDTH / 2, HEIGHT / 2))
@@ -48,7 +55,7 @@ def main():
                 mouse_pos = pygame.mouse.get_pos()
                 if start_button_rect.collidepoint(mouse_pos):
                     pygame.display.quit()
-                    subprocess.call(["python", "src/main.py"])
+                    subprocess.call(["python3", "src/main.py"])
 
         draw_start_view()
 
