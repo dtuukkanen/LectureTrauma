@@ -1,7 +1,7 @@
 import pygame
 import sys
 from saveScore import save_scoreboard
-import subprocess
+import main
 
 # Initialize Pygame
 pygame.init()
@@ -48,7 +48,7 @@ def draw_end_view(score):
     # Save the score
     save_scoreboard(score)
 
-def main(score):
+def end(score):
     draw_end_view(score)
 
     # Event loop
@@ -61,11 +61,11 @@ def main(score):
                 mouse_pos = pygame.mouse.get_pos()
                 if try_again_button.collidepoint(mouse_pos):
                     pygame.display.quit()
-                    subprocess.call(["python3", "src/main.py"])
+                    main.main()
                 elif quit_button.collidepoint(mouse_pos):
                     pygame.quit()
                     sys.exit()
 
 if __name__ == "__main__":
     score = 0  # Replace this with the actual score
-    main(score)
+    end(score)
