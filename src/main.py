@@ -106,7 +106,7 @@ def main():
             if student.lives <= 0:
                 explosion_sound.play()
                 import end
-                end.main(scoreboard.score)
+                end.end(scoreboard.score)
                 running = False
 
         # Update and draw the books
