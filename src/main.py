@@ -38,6 +38,7 @@ def draw_chairs(screen, rows, cols, chair_width, chair_height, chair_image):
 def main():
     # pygame setup
     pygame.init()
+    
     screen_width, screen_height = 640, 720
     screen = pygame.display.set_mode((screen_width, screen_height))
     clock = pygame.time.Clock()
@@ -53,7 +54,13 @@ def main():
     # Load the chair image
     chair_image = pygame.image.load('assets/chair_blue.png')
 
-
+    # Initialize the mixer module
+    pygame.mixer.init()
+    # Load the music file
+    #pygame.mixer.music.load('assets/music.mp3')
+    #sound_effect = pygame.mixer.Sound('assets/sound_effect.wav')
+    # Play the music file
+    #pygame.mixer.music.play(-1)  # -1 means to loop the music
 
     # Load the student
     student = Student(0, 0, chair_width, chair_height, rows, cols)
@@ -91,6 +98,7 @@ def main():
             if pygame.Rect(student.pos[0], student.pos[1], student.width, student.height).colliderect(pygame.Rect(book.pos[0], book.pos[1], book.width, book.height)):
                 student.lives -= book.damage
                 professor.books.remove((book, throw_time))
+                #sound_effect.play()
 
             if student.lives <= 0:
                 import end

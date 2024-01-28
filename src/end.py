@@ -61,7 +61,7 @@ def main(score):
                 mouse_pos = pygame.mouse.get_pos()
                 if try_again_button.collidepoint(mouse_pos):
                     pygame.display.quit()
-                    subprocess.call(["python", "src/main.py"])
+                    subprocess.call(["python3", "src/main.py"])
                 elif quit_button.collidepoint(mouse_pos):
                     pygame.quit()
                     sys.exit()
