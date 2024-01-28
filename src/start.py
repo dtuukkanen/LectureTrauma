@@ -2,6 +2,7 @@ import subprocess
 import pygame
 import sys
 from saveScore import get_high_score
+import main
 
 # Initialize Pygame
 pygame.init()
@@ -45,7 +46,7 @@ def draw_start_view():
     # Flip the display
     pygame.display.flip()
 
-def main():
+def start():
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -55,9 +56,9 @@ def main():
                 mouse_pos = pygame.mouse.get_pos()
                 if start_button_rect.collidepoint(mouse_pos):
                     pygame.display.quit()
-                    subprocess.call(["python3", "src/main.py"])
+                    main.main()
 
         draw_start_view()
 
 if __name__ == "__main__":
-    main()
+    start()
