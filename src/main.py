@@ -40,7 +40,7 @@ def main():
     # pygame setup
     pygame.init()
     
-    screen_width, screen_height = 640, 720
+    screen_width, screen_height = 480, 360
     screen = pygame.display.set_mode((screen_width, screen_height))
     clock = pygame.time.Clock()
     running = True
@@ -178,7 +178,7 @@ def main():
         # Draw the professor's message
         if professor.message:
             screen.blit(professor.message,
-                        (professor.pos[0] -50, professor.pos[1] + 35))
+                        (professor.pos[0] -140, professor.pos[1] + 40))
 
         pygame.display.flip()
         pygame.display.set_caption("LectureTrauma")
