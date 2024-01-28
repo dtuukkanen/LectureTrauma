@@ -2,7 +2,6 @@ import sys
 import time
 import pygame
 import random
-import subprocess
 
 from student import Student
 from professor import Professor

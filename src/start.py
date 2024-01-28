@@ -1,4 +1,3 @@
-import subprocess
 import pygame
 import sys
 from saveScore import get_high_score
