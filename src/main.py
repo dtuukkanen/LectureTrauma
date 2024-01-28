@@ -57,9 +57,12 @@ def main():
 
     # Initialize the mixer module
     pygame.mixer.init()
-    # Load the music file
+    # Load the music files
     #pygame.mixer.music.load('assets/music.mp3')
-    #sound_effect = pygame.mixer.Sound('assets/sound_effect.wav')
+    explosion_sound = pygame.mixer.Sound('assets/sounds/explosion.wav')
+    hurt_sound = pygame.mixer.Sound('assets/sounds/hurt.wav')
+    throw_book_sound = pygame.mixer.Sound('assets/sounds/throw_book.wav')
+    move_sound = pygame.mixer.Sound('assets/sounds/move1.wav')
     # Play the music file
     #pygame.mixer.music.play(-1)  # -1 means to loop the music
 
@@ -104,9 +107,10 @@ def main():
             if pygame.Rect(student.pos[0], student.pos[1], student.width, student.height).colliderect(pygame.Rect(book.pos[0], book.pos[1], book.width, book.height)):
                 student.lives -= book.damage
                 professor.books.remove((book, throw_time))
-                #sound_effect.play()
+                hurt_sound.play()
 
             if student.lives <= 0:
+                explosion_sound.play()
                 import end
                 end.main(scoreboard.score)
                 running = False
@@ -128,18 +132,23 @@ def main():
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
                     student.move(0, -chair_height)
+                    move_sound.play()
                 elif event.key == pygame.K_DOWN:
                     student.move(0, chair_height)
+                    move_sound.play()
                 elif event.key == pygame.K_LEFT:
                     student.move(-chair_width, 0)
+                    move_sound.play()
                 elif event.key == pygame.K_RIGHT:
                     student.move(chair_width, 0)
+                    move_sound.play()
             elif event.type == THROW_BOOK_EVENT:
                 # Generate a random position within the grid of chairs
                 random_col = random.randint(0, cols - 1)
                 random_row = random.randint(0, rows - 1)
                 random_pos = (random_col * chair_width, random_row * chair_height)
                 professor.throw_book(random_pos, scoreboard.score)
+                throw_book_sound.play()
             elif event.type == REMOVE_BOOK_EVENT:
                 # Remove the book when the timer event is triggered
                 if professor.books:
