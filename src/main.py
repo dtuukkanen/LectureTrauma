@@ -57,13 +57,13 @@ def main():
     # Initialize the mixer module
     pygame.mixer.init()
     # Load the music files
-    #pygame.mixer.music.load('assets/music.mp3')
+    pygame.mixer.music.load('assets/sounds/lecture.ogg')
     explosion_sound = pygame.mixer.Sound('assets/sounds/explosion.wav')
     hurt_sound = pygame.mixer.Sound('assets/sounds/hurt.wav')
     throw_book_sound = pygame.mixer.Sound('assets/sounds/throw_book.wav')
     move_sound = pygame.mixer.Sound('assets/sounds/move1.wav')
     # Play the music file
-    #pygame.mixer.music.play(-1)  # -1 means to loop the music
+    pygame.mixer.music.play(-1)  # -1 means to loop the music
 
     # Load the student
     student = Student(0, 0, chair_width, chair_height, rows, cols)
