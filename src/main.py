@@ -2,7 +2,6 @@ import sys
 import time
 import pygame
 import random
-import subprocess
 
 from student import Student
 from professor import Professor
@@ -87,11 +86,6 @@ def main():
     pygame.time.set_timer(THROW_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
     pygame.time.set_timer(REMOVE_BOOK_EVENT, 3000)  # 3000 milliseconds = 3 seconds
 
-    # Replay button
-    # WIDTH, HEIGHT = 640, 680
-    # BUTTON_WIDTH, BUTTON_HEIGHT = 200, 40
-    # try_again_button = pygame.Rect(WIDTH // 2 - BUTTON_WIDTH // 2, HEIGHT // 2, BUTTON_WIDTH, BUTTON_HEIGHT)
-
     # In the main game loop:
     while running:
         # In your main game loop:
@@ -154,11 +148,6 @@ def main():
                 if professor.books:
                     professor.books.pop(0)
                     scoreboard.increment_score(1)
-            # elif event.type == pygame.MOUSEBUTTONDOWN:
-            #     mouse_pos = pygame.mouse.get_pos()
-            #     if try_again_button.collidepoint(mouse_pos):
-            #         pygame.display.quit()
-            #         subprocess.call(["python", "src/main.py"])
 
         # fill the screen with a color to wipe away anything from last frame
         screen.fill("bisque4")
@@ -185,9 +174,6 @@ def main():
         pygame.display.flip()
         pygame.display.set_caption("LectureTrauma")
         draw_health_bar(screen, (325, 0), student.lives, student.max_lives)
-        # pygame.draw.rect(screen, (0, 255, 0), try_again_button)  # Green button
-        # try_again_text = font.render("Try Again", True, (0, 0, 0))
-        # screen.blit(try_again_text, (try_again_button.x + 10, try_again_button.y + 10))
         pygame.display.update()
         clock.tick(60)
 
