@@ -14,7 +14,7 @@ class Book:
         if score < 50:
             self.speed = int(exclamation[2]) + int(exclamation[2]) * score // 10
         else:
-            self.speed = int(exclamation[2]) + int(exclamation[2]) * 15
+            self.speed = int(exclamation[2]) + int(exclamation[2]) * 5
 
 
     def draw(self, screen):
