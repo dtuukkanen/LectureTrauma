@@ -1,7 +1,6 @@
 import pygame
 import os
 
-
 class Student:
     def __init__(self, x, y, width, height, rows, cols):
         self.image = pygame.image.load(

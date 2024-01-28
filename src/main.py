@@ -29,6 +29,12 @@ def draw_health_bar(screen, pos, health, max_health):
     if fill > 0:
         pygame.draw.rect(screen, (0, 255, 0), pygame.Rect(x, y, fill, bar_height))
 
+def draw_chairs(screen, rows, cols, chair_width, chair_height, chair_image):
+    # Draw the chairs
+    for row in range(rows):
+        for col in range(cols):
+            screen.blit(chair_image, (col * chair_width, row * chair_height))
+            
 def main():
     # pygame setup
     pygame.init()
@@ -99,6 +105,8 @@ def main():
         # Draw the student's lives
         lives_text = font.render(f"Lives: {student.lives}", True, (50, 50, 50))
         screen.blit(lives_text, (10, 10))
+
+        # Main event loop
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -128,9 +136,7 @@ def main():
         screen.fill("bisque4")
 
         # Draw the chairs
-        for row in range(rows):
-            for col in range(cols):
-                screen.blit(chair_image, (col * chair_width, row * chair_height))
+        draw_chairs(screen, rows, cols, chair_width, chair_height, chair_image)
 
         # Draw the student
         student.draw(screen)

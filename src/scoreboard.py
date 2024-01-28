@@ -1,7 +1,3 @@
-# scoreboard.py
-import pygame
-
-
 class Scoreboard:
     def __init__(self, x, y, font):
         self.score = 0
