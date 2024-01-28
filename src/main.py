@@ -177,8 +177,10 @@ def main():
 
         # Draw the professor's message
         if professor.message:
-            screen.blit(professor.message,
-                        (professor.pos[0] -140, professor.pos[1] + 40))
+            message_rect = professor.message.get_rect()
+            screen_center = (screen.get_width() // 2,  professor.pos[1] + 50)
+            message_pos = (screen_center[0] - message_rect.width // 2, screen_center[1] - message_rect.height // 2)
+            screen.blit(professor.message, message_pos)
 
         pygame.display.flip()
         pygame.display.set_caption("LectureTrauma")
