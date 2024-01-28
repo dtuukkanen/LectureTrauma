@@ -1,9 +1,9 @@
 Plagiointisyyte;80;10;3
 Puolet ei päässyt läpi kurssista;10;50;2
-Tyyliohjeet;40;10;2
-UML-kaaviot;10;20;1
+Tyyliohjevirhe;40;10;2
+Huonot UML-kaaviot;10;20;1
 Paperitentti;15;30;2
-Kurssilla ei moodlea;10;50;1
+Kurssilla ei ole moodlea;10;50;1
 Tarkastuksessa kestää yli puoli vuotta;10;20;2
 Koodi ei läpäissyt vaatimuksia;50;10;2
 50 kalvon luento;15;40;2
