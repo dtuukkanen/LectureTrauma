@@ -7,7 +7,7 @@ import main
 pygame.init()
 
 # Set up some constants
-WIDTH, HEIGHT = 640, 480
+WIDTH, HEIGHT = 480, 360
 FONT_SIZE = 32
 
 # Create the screen
