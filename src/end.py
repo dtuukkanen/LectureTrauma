@@ -7,7 +7,7 @@ import main
 pygame.init()
 
 # Set up some constants
-WIDTH, HEIGHT = 640, 480
+WIDTH, HEIGHT = 480, 360
 FONT_SIZE = 32
 BUTTON_WIDTH, BUTTON_HEIGHT = 200, 40
 
@@ -60,8 +60,8 @@ def end(score):
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 if try_again_button.collidepoint(mouse_pos):
-                    pygame.display.quit()
                     main.main()
+                    pygame.quit()
                 elif quit_button.collidepoint(mouse_pos):
                     pygame.quit()
                     sys.exit()
